@@ -10,7 +10,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -45,4 +45,7 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 4109369589
+    locked: 0
+  - name: Epee
+    uniqueID: 3123061783
     locked: 0
