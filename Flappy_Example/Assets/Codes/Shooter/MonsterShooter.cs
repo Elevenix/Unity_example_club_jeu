@@ -37,6 +37,12 @@ public class MonsterShooter : MonoBehaviour
     [SerializeField]
     private float attackRange = 0.5f;
 
+    [SerializeField]
+    private GameObject coin;
+
+    [SerializeField]
+    private int nbrCoin = 5;
+
     private Vector2 _dir;
     private GameObject _target;
     private bool _attacking;
@@ -81,10 +87,19 @@ public class MonsterShooter : MonoBehaviour
         anim.SetTrigger("damage");
         if (lifePoints <= 0)
         {
+            spawnCoins();
             Instantiate(particuleDie, centerBody.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
         
+    }
+
+    private void spawnCoins()
+    {
+        for(int i = 0; i<nbrCoin; i++)
+        {
+            Instantiate(coin, this.transform.position, Quaternion.identity);
+        }
     }
 
     public void attack()
