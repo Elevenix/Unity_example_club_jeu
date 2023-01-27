@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6903400480036067189}
   - component: {fileID: 7234595675416438131}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Manche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5064653413842937006}
   - component: {fileID: 8527034463372335024}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Poing (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884722181475209685}
   - component: {fileID: 1884722181475209684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: yeux L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,8 @@ GameObject:
   - component: {fileID: 1884722181711037579}
   - component: {fileID: 1884722181711037578}
   - component: {fileID: 5278158879621655478}
-  m_Layer: 0
+  - component: {fileID: 3480911472014712886}
+  m_Layer: 6
   m_Name: Mechant
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -351,6 +352,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6552353, y: 1.0565156}
   m_EdgeRadius: 0
+--- !u!50 &3480911472014712886
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884722181711037581}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1884722182264307225
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884722182264307224}
   - component: {fileID: 1884722182264307239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Oreilles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884722182303315038}
   - component: {fileID: 2825798837238702363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dessin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884722182596608835}
   - component: {fileID: 1884722182596608834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sourcils R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1884722182614249543}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884722182702189645}
   - component: {fileID: 1884722182702189644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884722182797661209}
   - component: {fileID: 1884722182797661208}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: yeux R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884722182839185958}
   - component: {fileID: 1884722182839185957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sourcils L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884722182899117235}
   - component: {fileID: 1884722182899117234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Oreilles (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4329187542540223663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Poings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +1012,7 @@ GameObject:
   - component: {fileID: 6537318808351595593}
   - component: {fileID: 4201411471480053402}
   - component: {fileID: 3460134845131431490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1058,7 +1080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4491469218778062235}
   - component: {fileID: 6064004568734415959}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1143,7 +1165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8291116171455697418}
   - component: {fileID: 3542923766226980786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Poing (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7826887933531564325}
   - component: {fileID: 3419136525772257021}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Protec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1311,7 +1333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6718166349676981349}
   - component: {fileID: 4383299866279352551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1058175722070661102}
   - component: {fileID: 944745621945526806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Poing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1534,7 +1556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7429150665017584913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PointCenterSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1567,7 +1589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3564217083726633192}
   - component: {fileID: 7670999688948934940}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Poing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1651,7 +1673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2854114355949965684}
   - component: {fileID: 1239336935245964237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1734,7 +1756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072985298176205672}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Poing_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1767,7 +1789,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2200882741743466297}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Poing_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}

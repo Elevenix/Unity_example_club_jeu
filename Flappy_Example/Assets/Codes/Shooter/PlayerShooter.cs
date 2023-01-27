@@ -70,6 +70,7 @@ public class PlayerShooter : MonoBehaviour
         if (life <= 0)
         {
             GameManagerShooter.GMS.StopGameShooter();
+
             // désactive la collision pour pas créer de bug si un ennemi nous attaque en étant mort
             this.GetComponent<Collider2D>().enabled = false;
         }

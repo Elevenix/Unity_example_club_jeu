@@ -108,7 +108,6 @@ public class GunShooter : MonoBehaviour
 
         if(_timeLoading >= timeLoadBigBall)
         {
-            print("OK");
             animGun.SetBool("finish", true);
         }
     }

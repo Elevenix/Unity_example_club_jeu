@@ -32,6 +32,9 @@ public class GameManagerShooter : MonoBehaviour
     [SerializeField]
     private Animator[] heartAnims;
 
+    [SerializeField]
+    private GameObject particulePlayerDie;
+
 
     public static GameManagerShooter GMS;
 
@@ -96,7 +99,9 @@ public class GameManagerShooter : MonoBehaviour
 
     IEnumerator endGame()
     {
+        _player.GetComponent<PlayerShooter>().enabled = false;
         yield return new WaitForSeconds(timeEnd/2);
+        Instantiate(particulePlayerDie, _player.transform.position, Quaternion.identity);
         Destroy(_player.gameObject);
         Time.timeScale = 0;
         StopAllCoroutines();
