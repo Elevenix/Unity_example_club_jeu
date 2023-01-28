@@ -48,6 +48,12 @@ public class GameManagerShooter : MonoBehaviour
     [SerializeField]
     private Text bestMoneyText;
 
+    [SerializeField]
+    private int nbrTower = 3;
+
+    [SerializeField]
+    private Animator messageTowerAnim;
+
     public static GameManagerShooter GMS;
 
     private GameObject _player;
@@ -123,6 +129,7 @@ public class GameManagerShooter : MonoBehaviour
     {
         // stop the possibility of the player to move
         _player.GetComponent<PlayerShooter>().enabled = false;
+        _player.GetComponent<GunShooter>().enabled = false;
 
         yield return new WaitForSeconds(timeEnd/2);
 
@@ -147,15 +154,39 @@ public class GameManagerShooter : MonoBehaviour
 
     public void addMoney()
     { 
-        StartCoroutine(delayMoneyAnim());
+        StartCoroutine(delayMoneyAnim(1));
     }
 
-    private IEnumerator delayMoneyAnim()
+    private IEnumerator delayMoneyAnim(int add)
     {
         yield return new WaitForSeconds(0.2f);
-        _money++;
+        _money += add;
         moneyAnim.SetTrigger("addMoney");
         yield return new WaitForSeconds(0.05f);
         moneyText.text = "x " + _money.ToString();
+    }
+
+    public int getMoney()
+    {
+        return _money;
+    }
+
+    public void setMoney(int cost)
+    {
+        StartCoroutine(delayMoneyAnim(-cost));
+    }
+
+    public void towerActivation()
+    {
+        nbrTower--;
+        if(nbrTower <= 0)
+        {
+            print("All tower activated");
+        }
+    }
+
+    public void messageActivation(bool b)
+    {
+        messageTowerAnim.SetBool("activated", b);
     }
 }

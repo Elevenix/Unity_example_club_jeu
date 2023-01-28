@@ -15,17 +15,16 @@ public class BallShooter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // the ball collision with a monster
         if (collision.CompareTag("Monster"))
         {
-            Instantiate(particuleTouch, transform.position, Quaternion.identity);
             collision.GetComponent<MonsterShooter>().setLifePoints(lifeLoosed);
+        }
+        Instantiate(particuleTouch, transform.position, Quaternion.identity);
 
-            if (destroyBallInTouch)
-            {
-                // the ball is destroyed when it is touching a monster
-                Destroy(this.gameObject);
-            }
+        if (destroyBallInTouch)
+        {
+            // the ball is destroyed when it is touching a monster
+            Destroy(this.gameObject);
         }
     }
 }

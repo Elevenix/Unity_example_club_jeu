@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2972994785842535367}
   - component: {fileID: 2972994785842535368}
   - component: {fileID: -419445713988206896}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BigBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 1877879767908628488}
   - component: {fileID: 1065524624658974718}
   - component: {fileID: 6223493388678266616}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4965,7 +4965,7 @@ GameObject:
   - component: {fileID: 7437875373274760626}
   - component: {fileID: 8831234090310686563}
   - component: {fileID: 2590284609639914873}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

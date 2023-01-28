@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7706167469073814080}
   - component: {fileID: 7706167469073814095}
   - component: {fileID: 5128211962996868533}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Balle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particuleTouch: {fileID: 3236469445656819592, guid: 1458b37d1d1102641a0766be9c0daa18, type: 3}
+  destroyBallInTouch: 1
+  lifeLoosed: 1
 --- !u!1 &8932222252744673833
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8603996665674384221}
   - component: {fileID: 8939370280918201986}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
