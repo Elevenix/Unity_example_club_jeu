@@ -19,6 +19,12 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField]
     private float sliderSpeedLoading;
 
+    [SerializeField]
+    private float timeShake;
+
+    [SerializeField]
+    private float magnitudeShake;
+
 
     private Rigidbody2D _rb;
     private Vector2 _dir;
@@ -36,10 +42,11 @@ public class PlayerShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // get the key right / left / up / down --> 1 = is pressed, 0 = isn't pressed
         _dir.x = Input.GetAxis("Horizontal");
         _dir.y = Input.GetAxis("Vertical");
 
-
+        // check for the movement for the animation
         if(_rb.velocity.x > 0.1f 
             || _rb.velocity.x  <-0.1f 
             || _rb.velocity.y > 0.1f 
@@ -55,8 +62,10 @@ public class PlayerShooter : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // when ejected, the player can't move
         if (!_ejecting)
         {
+            // movement
             _rb.velocity = _dir * speed * _percentageSpeed;
         }
     }
@@ -66,10 +75,14 @@ public class PlayerShooter : MonoBehaviour
         life--;
         anim.SetTrigger("damage");
         GameManagerShooter.GMS.looseHeart(life);
+        // screen shake
+        StartCoroutine(CameraFollow.cam.Shake(timeShake, magnitudeShake));
 
+        // when the player has no more life
         if (life <= 0)
         {
             GameManagerShooter.GMS.StopGameShooter();
+            anim.SetBool("dead", true);
 
             // désactive la collision pour pas créer de bug si un ennemi nous attaque en étant mort
             this.GetComponent<Collider2D>().enabled = false;
@@ -85,13 +98,17 @@ public class PlayerShooter : MonoBehaviour
         _ejecting = false;
     }
 
+    // the player is moving slowly (when charging the bigBall)
     public void slowMovementPlayer()
     {
         _percentageSpeed = sliderSpeedLoading;
+        anim.speed = _percentageSpeed;
     }
 
+    // recover normal speed
     public void normalMovementPlayer()
     {
         _percentageSpeed = 1;
+        anim.speed = 1;
     }
 }

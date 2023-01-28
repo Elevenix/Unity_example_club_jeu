@@ -327,8 +327,7 @@ MonoBehaviour:
   attackPoint: {fileID: 4491469218778062235}
   attackRange: 0.5
   coin: {fileID: 8323037169608097888, guid: 802df3c19ee1e6d44b0977c53de98827, type: 3}
-  nbrCoin: 5
-  distSpawnCoin: 5
+  nbrCoin: 3
 --- !u!61 &5278158879621655478
 BoxCollider2D:
   m_ObjectHideFlags: 0

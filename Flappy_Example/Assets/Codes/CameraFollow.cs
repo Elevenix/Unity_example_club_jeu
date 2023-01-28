@@ -7,6 +7,20 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private Transform following;
 
+    [SerializeField]
+    public Transform mainCamera;
+
+    public static CameraFollow cam;
+
+    private void Start()
+    {
+        if(cam == null)
+        {
+            cam = this;
+        }
+
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -15,5 +29,27 @@ public class CameraFollow : MonoBehaviour
             this.transform.position = new Vector3(following.position.x, following.position.y, transform.position.z);
         }
         
+    }
+
+    // screen shake (by Brackeys)
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPos = mainCamera.localPosition;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            mainCamera.localPosition = new Vector3(x, y, mainCamera.localPosition.z);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        mainCamera.localPosition = originalPos;
     }
 }

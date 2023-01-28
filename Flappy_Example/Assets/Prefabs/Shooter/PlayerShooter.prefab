@@ -5371,9 +5371,11 @@ MonoBehaviour:
   speed: 3
   anim: {fileID: 4255275790851812496}
   life: 3
-  ejectionTime: 0.5
+  ejectionTime: 0.4
   ejectionForce: 800
   sliderSpeedLoading: 0.5
+  timeShake: 0.2
+  magnitudeShake: 0.2
 --- !u!50 &4255275791466126436
 Rigidbody2D:
   serializedVersion: 4
@@ -5410,10 +5412,12 @@ MonoBehaviour:
   gun: {fileID: 4255275791624324367}
   ball: {fileID: 7706167469073814094, guid: 8a8e341528a559d499d563f3e4beec3c, type: 3}
   bigBall: {fileID: 2972994785842535369, guid: 39db6a79e5de58d43862caee651549b8, type: 3}
-  timeLoadBigBall: 2
+  timeLoadBigBall: 2.2
   spawnPoint: {fileID: 724574018857677932}
-  timeReload: 0.3
+  timeReload: 0.2
   force: 400
+  timeShake: 0.1
+  magnitudeShake: 0.2
   animGun: {fileID: 2762780363022270169}
 --- !u!210 &4255275791466126432
 SortingGroup:

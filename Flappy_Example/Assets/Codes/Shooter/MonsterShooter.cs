@@ -60,27 +60,32 @@ public class MonsterShooter : MonoBehaviour
         {
             _target = this.gameObject;
         }
+        // calcul the direction of the player (_target)
         _dir = _target.transform.position - transform.position;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        // sword follow the player
         sword.transform.up = _dir;
 
         if (Vector2.Distance(this.transform.position, _target.transform.position) > dist && !_attacking)
         {
+            // the monster run
             anim.SetBool("run", true);
             animSword.SetBool("attack", false);
             transform.Translate((_target.transform.position - this.transform.position).normalized * speed);
         }
         else
         {
+            // the monster can attack
             anim.SetBool("run", false);
             animSword.SetBool("attack", true);
         }
     }
 
+    // monster loosed life points
     public void setLifePoints(int i)
     {
         lifePoints -= i;
@@ -120,6 +125,7 @@ public class MonsterShooter : MonoBehaviour
     
     }
 
+    // draw the circle collision of the attack
     private void OnDrawGizmosSelected()
     {
         if(attackPoint == null)
