@@ -6,19 +6,6 @@ using UnityEngine.UI;
 
 public class GameManagerShooter : MonoBehaviour
 {
-  
-
-    [SerializeField]
-    private GameObject monster;
-
-    [SerializeField]
-    private float minTimeSpawn;
-
-    [SerializeField]
-    private float maxTimeSpawn;
-
-    [SerializeField]
-    private float distSpawn = 5;
 
     [SerializeField]
     private float timeEnd = 1;
@@ -41,22 +28,13 @@ public class GameManagerShooter : MonoBehaviour
     [SerializeField]
     private Text bestMoneyText;
 
-    [SerializeField]
-    private int nbrTower = 3;
-
-    [SerializeField]
-    private Animator messageTowerAnim;
-
-    [SerializeField]
-    private Animator platformAscensor;
-
     public static GameManagerShooter GMS;
 
-    private GameObject _player;
+    private PlayerShooter _player;
     private int _money = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(GMS == null)
         {
@@ -70,9 +48,7 @@ public class GameManagerShooter : MonoBehaviour
 
         Time.timeScale = 1;
 
-        _player = FindObjectOfType<PlayerShooter>().gameObject;
-
-        StartCoroutine(spawnMonsters());
+        _player = FindObjectOfType<PlayerShooter>();
     }
 
     // Update is called once per frame
@@ -93,16 +69,6 @@ public class GameManagerShooter : MonoBehaviour
         StartCoroutine(endGame());
     }
 
-    private IEnumerator spawnMonsters()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-            // set there spawn position around the player
-            Vector3 v = Random.insideUnitCircle.normalized * distSpawn;
-            Instantiate(monster, _player.transform.position + v , Quaternion.identity);
-        }
-    }
 
     public void looseHeart(int i)
     {
@@ -112,8 +78,7 @@ public class GameManagerShooter : MonoBehaviour
     IEnumerator endGame()
     {
         // stop the possibility of the player to move
-        _player.GetComponent<PlayerShooter>().enabled = false;
-        _player.GetComponent<GunShooter>().enabled = false;
+        playerCanMove(false);
 
         yield return new WaitForSeconds(timeEnd/2);
 
@@ -160,17 +125,14 @@ public class GameManagerShooter : MonoBehaviour
         StartCoroutine(delayMoneyAnim(-cost));
     }
 
-    public void towerActivation()
+    public PlayerShooter getPlayerShooter()
     {
-        nbrTower--;
-        if(nbrTower <= 0)
-        {
-            platformAscensor.SetTrigger("activated");
-        }
+        return _player;
     }
 
-    public void messageActivation(bool b)
+    public void playerCanMove(bool moving)
     {
-        messageTowerAnim.SetBool("activated", b);
+        _player.GetComponent<PlayerShooter>().enabled = moving;
+        _player.GetComponent<GunShooter>().enabled = moving;
     }
 }

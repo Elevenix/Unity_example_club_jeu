@@ -111,4 +111,9 @@ public class PlayerShooter : MonoBehaviour
         _percentageSpeed = 1;
         anim.speed = 1;
     }
+
+    public Animator getAnimatorPlayer()
+    {
+        return anim;
+    }
 }

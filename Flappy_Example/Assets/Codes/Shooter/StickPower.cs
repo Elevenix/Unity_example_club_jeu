@@ -10,11 +10,12 @@ public class StickPower : MonoBehaviour
     private int cost;
 
     private bool _firstTime = true;
+    private ElevatorShooter elevator;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        elevator = ElevatorShooter.elevator;
     }
 
     // Update is called once per frame
@@ -28,15 +29,24 @@ public class StickPower : MonoBehaviour
     {
         if (collision.CompareTag("Player") && _firstTime)
         {
-            GameManagerShooter.GMS.messageActivation(true);
+            elevator.messageActivation(true);
 
-            if (Input.GetKey(KeyCode.Space) && GameManagerShooter.GMS.getMoney() >= cost)
+            if (Input.GetKey(KeyCode.Space))
             {
-                GameManagerShooter.GMS.setMoney(cost);
-                GameManagerShooter.GMS.towerActivation();
+                if(GameManagerShooter.GMS.getMoney() >= cost)
+                {
+                    elevator.messageActivation(false);
 
-                stickAnim.SetTrigger("activation");
-                _firstTime = false;
+                    GameManagerShooter.GMS.setMoney(cost);
+                    elevator.towerActivation();
+
+                    stickAnim.SetTrigger("activation");
+                    _firstTime = false;
+                }
+                else
+                {
+                    elevator.messageShake();
+                }
             }
         }
     }
@@ -45,7 +55,7 @@ public class StickPower : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManagerShooter.GMS.messageActivation(false);
+            elevator.messageActivation(false);
         }
     }
 }

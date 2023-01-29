@@ -93,8 +93,9 @@ public class MonsterShooter : MonoBehaviour
         if (lifePoints <= 0)
         {
             spawnCoins();
-            Instantiate(particuleDie, centerBody.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            // suppress the monster of the list of allMonsters
+            SpawnerMonster.allMonsters.Remove(this.gameObject);
+            monsterDie();
         }
         
     }
@@ -133,5 +134,11 @@ public class MonsterShooter : MonoBehaviour
             return;
         }
         Gizmos.DrawSphere(attackPoint.position, attackRange);
+    }
+
+    public void monsterDie()
+    {
+        Instantiate(particuleDie, centerBody.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }

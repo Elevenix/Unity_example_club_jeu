@@ -52,4 +52,10 @@ public class CameraFollow : MonoBehaviour
 
         mainCamera.localPosition = originalPos;
     }
+
+    // stop following the object
+    public void stopFollow()
+    {
+        following = null;
+    }
 }

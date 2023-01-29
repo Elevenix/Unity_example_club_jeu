@@ -21,6 +21,9 @@ public class GroundSquare : MonoBehaviour
     public bool activatePlants = true;
 
     [SerializeField]
+    private int zoneStart = 6;
+
+    [SerializeField]
     private GameObject[] groundObjects;
 
     [SerializeField]
@@ -44,6 +47,7 @@ public class GroundSquare : MonoBehaviour
         }
     }
 
+    // spawn squares in 8 directions
     private void spawnSquares(GameObject go, float d, float start)
     {
         float dist = start;
@@ -69,7 +73,14 @@ public class GroundSquare : MonoBehaviour
         for (int i = 0; i < nbrObjects; i++)
         {
             GameObject randObject = groundObjects[Random.Range(0, groundObjects.Length)];
-            Vector3 randPos = new Vector3(Random.Range(-sizeGround, sizeGround), Random.Range(-sizeGround, sizeGround), 0);
+            Vector3 randPos = Vector3.zero;
+            // to not spawn enter the start platform (elevator)
+            do
+            {
+                randPos = new Vector3(Random.Range(-sizeGround, sizeGround), Random.Range(-sizeGround, sizeGround),0);
+            }
+            while ((randPos.x < zoneStart && randPos.x > -zoneStart) && (randPos.y < zoneStart && randPos.y > -zoneStart));
+            
             Instantiate(randObject, randPos, Quaternion.identity);
         }
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Monster
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: elevator
+    uniqueID: 3019517985
     locked: 0
   - name: player
     uniqueID: 4109369589
