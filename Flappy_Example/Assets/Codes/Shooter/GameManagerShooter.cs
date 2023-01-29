@@ -6,14 +6,7 @@ using UnityEngine.UI;
 
 public class GameManagerShooter : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] groundObjects;
-
-    [SerializeField]
-    private int nbrObjects;
-
-    [SerializeField]
-    private float sizeGround;
+  
 
     [SerializeField]
     private GameObject monster;
@@ -54,6 +47,9 @@ public class GameManagerShooter : MonoBehaviour
     [SerializeField]
     private Animator messageTowerAnim;
 
+    [SerializeField]
+    private Animator platformAscensor;
+
     public static GameManagerShooter GMS;
 
     private GameObject _player;
@@ -75,7 +71,6 @@ public class GameManagerShooter : MonoBehaviour
         Time.timeScale = 1;
 
         _player = FindObjectOfType<PlayerShooter>().gameObject;
-        spawnGroundObjects();
 
         StartCoroutine(spawnMonsters());
     }
@@ -96,17 +91,6 @@ public class GameManagerShooter : MonoBehaviour
         // slow motion
         Time.timeScale = 0.5f;
         StartCoroutine(endGame());
-    }
-
-    // Spawn plants radomly on the ground
-    private void spawnGroundObjects()
-    {
-        for(int i=0; i<nbrObjects; i++)
-        {
-            GameObject randObject = groundObjects[Random.Range(0, groundObjects.Length)];
-            Vector3 randPos = new Vector3(Random.Range(-sizeGround, sizeGround), Random.Range(-sizeGround, sizeGround), 0);
-            Instantiate(randObject, randPos, Quaternion.identity);
-        }
     }
 
     private IEnumerator spawnMonsters()
@@ -181,7 +165,7 @@ public class GameManagerShooter : MonoBehaviour
         nbrTower--;
         if(nbrTower <= 0)
         {
-            print("All tower activated");
+            platformAscensor.SetTrigger("activated");
         }
     }
 
